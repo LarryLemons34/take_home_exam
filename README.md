@@ -12,8 +12,22 @@
 ## How to install :
 You will need to install npm and node on your computer.
 
-In order to run this interview exam project you need to clone this repository and run npm install in the directory you cloned the repo in. Next you need to run node index.js with two additional environment variables.
+In order to run this interview exam project you need to clone this repository. Second, change directories into the "take_home_exam" directory. Third, run npm install in this directory. Next you need to run node index.js with two additional environment variables.
 - AGENT_FILE_PATH
 - CUSTOMER_FILE_PATH
 
+For example : AGENT_FILE_PATH=/Users/me/take_home_exam/agent.json CUSTOMER_FILE_PATH=/Users/me/take_home_exam/customer.json node index.js
+
 These two environment varibles should point to the json where you cloned the json files included in this repo or to any other compatible agent/customer json files.
+
+Here is a list of the available endpoints in order: 
+
+GET http://localhost:4444/agents
+POST http://localhost:4444/agent
+GET http://localhost:4444/agent/:_id
+PUT http://localhost:4444/agent/
+GET http://localhost:4444/customer/:agent_id
+POST http://localhost:4444/customer/
+DELETE http://localhost:4444/customer/:_id
+GET http://localhost:4444/customer/details/:_id
+PUT http://localhost:4444/customer/
