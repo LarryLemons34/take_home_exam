@@ -5,7 +5,6 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const app = express()
 const { check, validationResult, checkSchema } = require('express-validator');
-// const _ = require("lodash");
 
 const fs = require('fs');
 
