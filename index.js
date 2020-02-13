@@ -14,6 +14,8 @@ let getJSONFile = (path) =>{
         return JSON.parse(rawData);
     }
 }
+
+//Return List of all Agents
 let handleListAgentReq = (req, res, next) =>{
     try {
         if(typeof process.env.AGENT_FILE_PATH !== "undefined"){
@@ -44,6 +46,7 @@ let handleListAgentReq = (req, res, next) =>{
     }
 }
 
+//Ability to Add New Agent
 let handleAddAgentReq = (req, res, next) =>{
     try {
         const errors = validationResult(req);
@@ -89,7 +92,7 @@ let handleAddAgentReq = (req, res, next) =>{
     }
 }
 
-
+//Retrieve All Agent Details by agent's INT ID
 let handleGetAgentByIdReq = (req, res, next) =>{
     try {
         const errors = validationResult(req);
@@ -136,7 +139,7 @@ let handleGetAgentByIdReq = (req, res, next) =>{
     }
 }
 
-
+//Update Any/All Fields by Agent's INT IT
 let handleUpdateAgentReq = (req, res, next) =>{
     try {
         const errors = validationResult(req);
@@ -193,7 +196,7 @@ let handleUpdateAgentReq = (req, res, next) =>{
     }
 }
 
-
+//List all customers associated with a given Agent's INT ID
 let handleAgentsCustomersReq = (req, res, next) =>{
     try {
         const errors = validationResult(req);
@@ -248,6 +251,7 @@ let handleAgentsCustomersReq = (req, res, next) =>{
     }
 }
 
+//Ability to Add new Customer
 let handleAddCustomerReq = (req, res, next) =>{
     try {
         const errors = validationResult(req);
@@ -309,6 +313,7 @@ let handleAddCustomerReq = (req, res, next) =>{
     }
 }
 
+//Ability to Delete Exisiting Customer
 let handleDeleteCustomerReq = (req, res, next) =>{
     try {
         const errors = validationResult(req);
@@ -362,6 +367,7 @@ let handleDeleteCustomerReq = (req, res, next) =>{
     }
 }
 
+//Return all customer data from our system
 let handleAgentsCustomersDetailsReq = (req, res, next) =>{
     try {
         const errors = validationResult(req);
@@ -410,7 +416,7 @@ let handleAgentsCustomersDetailsReq = (req, res, next) =>{
     }
 }
 
-
+//Provide ability to Update Customer Information
 let handleUpdateCustomerReq = (req, res, next) =>{
     try {
         const errors = validationResult(req);
