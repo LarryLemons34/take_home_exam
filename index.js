@@ -278,13 +278,13 @@ let handleAddCustomerReq = (req, res, next) =>{
                         req, res, next);
                 }
 
-                return handleResponse("Agent Added", {
+                return handleResponse("Agent Customer", {
                     statusCode : 200,
                     headers: {
                         "Access-Control-Allow-Origin" : "*",
                         "Access-Control-Allow-Credentials" : true
                     },
-                    body: "Agent Added" }, 
+                    body: "Agent Customer" }, 
                     req, res, next);
             } else {
                 return handleResponse( "Missing Request Body", {
@@ -430,7 +430,7 @@ let handleUpdateCustomerReq = (req, res, next) =>{
                 
                 let response;
                 if(customerList.length > 0){
-                    fs.writeFileSync(process.env.CUSTOMER_FILE_PATH, JSON.stringify(customerList, null, 2));
+                    fs.writeFileSync(process.env.CUSTOMER_FILE_PATH, JSON.stringify(customerData, null, 2));
                     response = "Updated Customer."
                 } else {
                     response = "Could not find customer."
