@@ -13,6 +13,6 @@
 You will need to install npm and node on your computer.
 
 In order to run this interview exam project you need to clone this repository and run npm install in the directory you cloned the repo in. Next you need to run node index.js with two additional environment variables.
-    - AGENT_FILE_PATH
-    - CUSTOMER_FILE_PATH
+- AGENT_FILE_PATH
+- CUSTOMER_FILE_PATH
 These two environment varibles should point to the json where you cloned the json files included in this repo or to any other compatible agent/customer json files.
