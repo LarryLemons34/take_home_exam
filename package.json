@@ -1,0 +1,24 @@
+{
+  "name": "take_home_exam",
+  "version": "1.0.0",
+  "description": "Interview take home exam",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LarryLemons34/take_home_exam.git"
+  },
+  "author": "Spencer Crews",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LarryLemons34/take_home_exam/issues"
+  },
+  "homepage": "https://github.com/LarryLemons34/take_home_exam#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0"
+  }
+}
