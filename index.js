@@ -6,7 +6,7 @@ const bodyParser = require("body-parser")
 const app = express()
 const { check, validationResult, checkSchema } = require('express-validator');
 
-const fs = require('fs');
+const fs = require('promise-fs');
 
 let getJSONFile = (path) =>{
     if(typeof path !== "undefined"){
@@ -24,7 +24,7 @@ let handleListAgentReq = (req, res, next) =>{
                 return typeof agent !== "undefined" ? agent.name : "No agent";
             })
             
-            return handleResponse(response, {
+            handleResponse(response, {
                 statusCode : 200,
                 headers: {
                     "Access-Control-Allow-Origin" : "*",
@@ -32,10 +32,12 @@ let handleListAgentReq = (req, res, next) =>{
                 },
                 body: response }, 
                 req, res, next);
+        } else {
+            throw "Missing AGENT_FILE_PATH env variable";
         }
     } catch (error) {
         console.log("Error", error);
-        return handleResponse( error, {
+        handleResponse( error, {
         statusCode : 500,
         headers: {
             "Access-Control-Allow-Origin" : "*",
@@ -473,6 +475,7 @@ let handleUpdateCustomerReq = (req, res, next) =>{
     }
 }
 const handleResponse = (bodyRes, response, req, res, next) => {
+    // res.status(200).send("The Polyglot Developer");
     res.status(response.statusCode);
     res.send(bodyRes);
     next();
@@ -565,5 +568,8 @@ app.put("/customer/",[ bodyParser.json(),
     check("tags").optional()
 ], handleUpdateCustomerReq);
 
-console.info("listening on port 4444");
-app.listen(4444);
+var server = app.listen(4444, ()=>{
+    console.log("Listening on port " + server.address().port + "...");
+});
+
+module.exports = server;
